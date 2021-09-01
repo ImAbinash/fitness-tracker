@@ -1,0 +1,32 @@
+<section>
+    <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px" #signup="ngForm" (ngSubmit)="onSubmit(signup)">
+        <mat-form-field class="signup-full-width" appearance="legacy">
+            <mat-label>Email id</mat-label>
+            <input type="email" matInput placeholder="Enter email id" ngModel name="emailId" required
+                #emailId="ngModel" />
+            <mat-error *ngIf="emailId.hasError('required')">Email id must not empty</mat-error>
+            <mat-error *ngIf="!(emailId.hasError('required'))">Invalid email id</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="signup-full-width" appearance="legacy">
+            <mat-label>Password</mat-label>
+            <input type="password" matInput placeholder="Enter password" ngModel name="password" minlength="6" required
+                #password="ngModel" />
+            <mat-error>Length should be atleast 6 characer</mat-error>
+            <mat-error align="end">{{password.value?.length}}/6</mat-error>
+        </mat-form-field>
+        <mat-form-field class="signup-full-width" appearance="legacy">
+            <mat-label>DOB</mat-label>
+            <input matInput [matDatepicker]="picker" [min]="minDate" [max]="maxDate" ngModel name="dob" #dob="ngModel" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error>Choose date of birth</mat-error>
+        </mat-form-field>
+        <mat-checkbox class="example-margin" 
+            color="primary"
+            ngModel name="isAcceptedTerms" 
+            #isAcceptedTerms="ngModel" 
+            required>I accept terms & conditions.</mat-checkbox>
+        <button mat-raised-button color="primary" type="submit" class="signup-button" [disabled]="signup.invalid">Register</button>
+    </form>
+</section>

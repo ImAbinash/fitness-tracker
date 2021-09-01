@@ -1,0 +1,18 @@
+.navigation-link a{
+    text-decoration: none;
+    color:white;
+  }
+  .navigation-link li{
+    list-style-type: none;
+  }
+  
+  .navigation-link a:hover,
+  .navigation-link a:active{
+    cursor: pointer;
+    color: gray;
+  }
+  #logo{
+    text-decoration: none;
+    color:white;
+  }
+  

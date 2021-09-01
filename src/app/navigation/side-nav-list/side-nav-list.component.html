@@ -1,0 +1,21 @@
+<mat-nav-list class="sidenav-navlist">
+    <a mat-list-item routerLink="/" (click)="sideNavClose()">
+        Fitness Tracker
+    </a>
+    <a mat-list-item routerLink="/login" (click)="sideNavClose()" *ngIf="!isAuth">
+        <mat-icon aria-hidden="false">lock_open</mat-icon>
+        Login
+    </a>
+    <a mat-list-item routerLink="/signup" (click)="sideNavClose()" *ngIf="!isAuth">
+        <mat-icon aria-hidden="false" >supervisor_account</mat-icon>
+        Register
+    </a>
+    <a mat-list-item routerLink="/training" (click)="sideNavClose()" *ngIf="isAuth">
+        <mat-icon aria-hidden="false">fitness_center</mat-icon>
+        Training
+    </a>
+    <a mat-list-item routerLink="/" (click)="logout()" *ngIf="isAuth">
+        <mat-icon aria-hidden="false">lock</mat-icon>
+        Logout
+    </a>
+</mat-nav-list>
